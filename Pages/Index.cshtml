@@ -1,0 +1,20 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="container py-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="display-3 fw-bold mb-4">🏠 Агентство недвижимости</h1>
+            <p class="lead text-muted mb-5">
+                Веб-приложение на ASP.NET Core Razor Pages.<br />
+                Управление объектами недвижимости: просмотр, добавление, редактирование.
+            </p>
+            <a asp-page="/Products/Index" class="btn btn-primary btn-lg px-5 py-3 fs-5">
+                Перейти к недвижимости →
+            </a>
+        </div>
+    </div>
+</div>

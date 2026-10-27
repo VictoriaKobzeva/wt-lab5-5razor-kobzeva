@@ -1,0 +1,74 @@
+@page
+@model wt_lab5_5razor_kobzeva.Pages.Products.CreateModel
+
+@{
+    ViewData["Title"] = "Добавить объект";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm rounded-4 border-0">
+                <div class="card-body p-4">
+                    <h1 class="fw-bold mb-4">➕ Добавить объект недвижимости</h1>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="Property.Address" class="form-label">Адрес</label>
+                            <input asp-for="Property.Address" class="form-control" placeholder="г. Минск, ул. ..." />
+                            <span asp-validation-for="Property.Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Property.Type" class="form-label">Тип</label>
+                            <input asp-for="Property.Type" class="form-control" placeholder="Квартира / Дом / Офис" />
+                            <span asp-validation-for="Property.Type" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Property.Price" class="form-label">Цена (BYN)</label>
+                                <input asp-for="Property.Price" class="form-control" type="number" step="0.01" />
+                                <span asp-validation-for="Property.Price" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Property.Area" class="form-label">Площадь (м²)</label>
+                                <input asp-for="Property.Area" class="form-control" type="number" step="0.1" />
+                                <span asp-validation-for="Property.Area" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Property.Rooms" class="form-label">Количество комнат</label>
+                                <input asp-for="Property.Rooms" class="form-control" type="number" />
+                                <span asp-validation-for="Property.Rooms" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                                <div class="form-check mt-4">
+                                    <input asp-for="Property.IsAvailable" class="form-check-input" type="checkbox" />
+                                    <label asp-for="Property.IsAvailable" class="form-check-label">Доступен</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                💾 Сохранить
+                            </button>
+                            <a asp-page="./Index" class="btn btn-secondary btn-lg">
+                                Назад
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

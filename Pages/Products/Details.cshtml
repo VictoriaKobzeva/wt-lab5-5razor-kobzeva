@@ -1,0 +1,53 @@
+@page
+@model wt_lab5_5razor_kobzeva.Pages.Products.DetailsModel
+
+@{
+    ViewData["Title"] = "Детали объекта";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm rounded-4 border-0">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h1 class="fw-bold">@Model.Property?.Address</h1>
+                        <span class="badge bg-secondary fs-6">ID: @Model.Property?.Id</span>
+                    </div>
+
+                    <dl class="row fs-5">
+                        <dt class="col-sm-4">Тип:</dt>
+                        <dd class="col-sm-8">@Model.Property?.Type</dd>
+
+                        <dt class="col-sm-4">Площадь:</dt>
+                        <dd class="col-sm-8">@Model.Property?.Area м²</dd>
+
+                        <dt class="col-sm-4">Количество комнат:</dt>
+                        <dd class="col-sm-8">@Model.Property?.Rooms</dd>
+
+                        <dt class="col-sm-4">Цена:</dt>
+                        <dd class="col-sm-8 fw-bold text-primary">@Model.Property?.Price.ToString("N0") BYN</dd>
+
+                        <dt class="col-sm-4">Доступность:</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.Property?.IsAvailable == true)
+                            {
+                                <span class="badge bg-success">Доступен</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Недоступен</span>
+                            }
+                        </dd>
+                    </dl>
+
+                    <div class="d-flex gap-2 mt-4">
+                        <a asp-page="./Index" class="btn btn-secondary">
+                            ← Назад к списку
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
